@@ -11,7 +11,6 @@
   - [S3 Standard](#s3-standard)
   - [S3 characteristics](#s3-characteristics)
   - [S3 security](#s3-security)
-  - [Exam Tips](#exam-tips)
   - [Host a static website on S3](#host-a-static-website-on-s3)
 
 # Region, AZ, Edge Locations
@@ -94,11 +93,11 @@
 > 3. Enable Public access (Bucket name ==> Permission ==> Block Public Access)
 > 4. Enable ACL on objects (Bucket name ==> Permission ==> Object Ownership)
 
-## Exam Tips
-* Buckets / Objects are private by default
-* Object ACLs : handle individual object
-* Bucket ACLs : handle entire bucket
-* HTTP Status Code when upload an object is **HTTP 200**
+**Exam Tips**
+>* Buckets / Objects are private by default
+>* Object ACLs : handle individual object
+>* Bucket ACLs : handle entire bucket
+>* HTTP Status Code when upload an object is **HTTP 200**
 
 ## Host a static website on S3
 * Only static web pages not any dynamic websites
@@ -128,4 +127,8 @@
 > ```
 > 5. Enable Hosting website on bucket Properties
 > 6. Visite your web site (URL: http://BUCKET_NAME.s3-website-REGION.amazonaws.com )
-)
+
+**Exam Tips**
+>* Bucket Policies: enable public acces using policies
+>* Static content only
+>* Automatic Scaling
