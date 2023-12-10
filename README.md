@@ -65,6 +65,9 @@
 ### Application Load Balancer
 
 - we can lanipulate X-Forwarded-For Header to identify original IP
+- On a target Group, we can select 
+  - EC2 Instance 
+  - Ip Address (Same subnet)
 
 ### ELB Error Messages
 
@@ -79,5 +82,17 @@
 
 ![Alt text](img/error_message_elb.png)
 
-> ***CLOUDWATCH***
-> 
+### ***CLOUDWATCH Exam Tips***
+> - HealthyHostCount
+> - TargetResponseTime
+> - UnHealthyHostCount
+> - HTTP Status Codes
+> - RequestCount
+
+* Access logs : capture information relating to incoming requestes to your ELB
+* Disabled by default
+* Enrypted when stored in S3 bucket
+
+### ELB Routing Requests
+* Based on Algo : Round Robin / Least Outstanding Resuest
+* Sticky Session / Session affinity : based on session cookies send to same target (override the algo) : used when data session is stored localy in the server
