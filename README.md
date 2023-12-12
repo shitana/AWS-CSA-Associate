@@ -19,6 +19,7 @@
   - [CLOUDFORMATION](#cloudformation)
     - [CF process](#cf-process)
     - [Templates CloudFormation](#templates-cloudformation)
+    - [CloudFormation StackSets](#cloudformation-stacksets)
     - [Exam Tips](#exam-tips-2)
 
 # Course details
@@ -209,6 +210,16 @@ Outputs:
     Value: !Ref MyEC2Instance
 
 ```
+
+### CloudFormation StackSets 
+
+- Manage CF Stack on multiple aws account/ Region
+- Steps:
+  - Configure IAM permissions using cross-account roles.
+  - In your administrator account, create the IAM role: ***AWSCloudFormationStackSetAdministrationRole***
+  - In your target accounts, create the Service role: ***AWSCloudFormationStackSetExecutionRole***
+  - ***AWSCloudFormationStackSetAdministrationRole*** is allowed to assume ***AWSCloudFormationStackSetExecutionRole*** and provision resources in the target account.
+![Alt text](img/CF_assume_role.png)
 
 ### Exam Tips
 

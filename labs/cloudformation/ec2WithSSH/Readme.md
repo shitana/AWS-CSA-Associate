@@ -54,3 +54,8 @@ Replace `<PublicIpAddress_or_PublicDnsName>` with the actual public IP address o
   - For Amazon , it's typically `ec2-user`.
   - For Ubuntu , it's typically `ubuntu`.
 
+## Delete Stack
+
+```bash
+aws cloudformation delete-stack --stack-name MyEC2Stack
+```
