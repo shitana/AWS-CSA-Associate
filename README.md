@@ -20,7 +20,13 @@
     - [CF process](#cf-process)
     - [Templates CloudFormation](#templates-cloudformation)
     - [CloudFormation StackSets](#cloudformation-stacksets)
+    - [CF Errors](#cf-errors)
     - [Exam Tips](#exam-tips-2)
+  - [Blue / Green Deployments](#blue--green-deployments)
+  - [Rolling Deployments](#rolling-deployments)
+  - [Canary Deployments](#canary-deployments)
+  - [Systems Manager](#systems-manager)
+  - [OPSWorks](#opsworks)
 
 # Course details
 
@@ -157,7 +163,10 @@
 
 ## CLOUDFORMATION
 
+![Alt text](img/cloudformation.png)
+
 - Manage, configure and provision AWA infrastructure as code
+- Stack policy : JSON file to define what actions are allowed on your stack
 
 ### CF process
 
@@ -211,16 +220,60 @@ Outputs:
 
 ```
 
-### CloudFormation StackSets 
+### CloudFormation StackSets
 
 - Manage CF Stack on multiple aws account/ Region
-- Steps:
-  - Configure IAM permissions using cross-account roles.
-  - In your administrator account, create the IAM role: ***AWSCloudFormationStackSetAdministrationRole***
+- Configure IAM permissions using cross-account roles. Steps:
+  - In your administrator account, create the IAM role (where we will run CF): ***AWSCloudFormationStackSetAdministrationRole***
+  - In your administrator account, create a service that can assume role
   - In your target accounts, create the Service role: ***AWSCloudFormationStackSetExecutionRole***
   - ***AWSCloudFormationStackSetAdministrationRole*** is allowed to assume ***AWSCloudFormationStackSetExecutionRole*** and provision resources in the target account.
+- Ressource Access Manager : allow sharing ressources with other accounts
+
 ![Alt text](img/CF_assume_role.png)
+
+### CF Errors
+
+- IAM insuficient permessions de to create EC2 instances (where running Cloudformation)
+- Limts exceded
+- Failed Rollback :
+  - making modification manualy outside CF template (statefull)
+  - Ressources doesn't exist anymore
 
 ### Exam Tips
 
-![Alt text](img/cloudformation.png)
+![Alt text](img/CF_examtips.png)
+
+## Blue / Green Deployments
+
+![Alt text](img/blueGreen.png)
+
+## Rolling Deployments
+
+- allow deployment of new version in a certain number of ressources 
+- It can reduces costs comparing to Blue / Green Deployments
+![Alt text](img/rollingDeployExam.png)
+
+## Canary Deployments
+
+- Like Rolling Deployments with possiblilty to deploy new version on 10% of ressources and redirect a small portion of costumer to this version 
+- Enable Canary Testing with a small portion before roll out to 100 % of ressource
+
+## Systems Manager
+
+- What Is Systems Manager? 
+  - **Management Tool** : Visibility and control over your AWS infrastructure.
+  - **Inventory of Your EC2 Instances** : Organize and group resources together by application or environment, even including on- premises systems.
+  - **Automation** : Automate common operational tasks on multiple systems simultaneously, like patching, installing applications, running scripts, etc.
+
+- Inventory and automation
+- Run command : We can run a pre defined command on a EC2 instances
+- Patch Manager 
+
+## OPSWorks
+
+- A configuration management Serice compatible with Puppet and Chef
+- OpsWorks Stacks :
+  - Automate installation of stack (DB, LB and EC)
+  - MAnaged Services : Puppet / Chef
+  - management configuration tool

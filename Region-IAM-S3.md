@@ -18,8 +18,6 @@
   
   This is the content hidden inside the collapsible section. You can include any text or Markdown-formatted content here.
 
-
-
 # Region, AZ, Edge Locations
 
 - multiple availability Zone
