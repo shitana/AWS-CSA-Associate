@@ -27,6 +27,10 @@
   - [Canary Deployments](#canary-deployments)
   - [Systems Manager](#systems-manager)
   - [OPSWorks](#opsworks)
+- [Section 4 : Monitoring, Logging and remediation](#section-4--monitoring-logging-and-remediation)
+  - [CloudWatch Dashboards](#cloudwatch-dashboards)
+  - [CloudWatch Logs](#cloudwatch-logs)
+    - [Terminology](#terminology)
 
 # Course details
 
@@ -277,3 +281,26 @@ Outputs:
   - Automate installation of stack (DB, LB and EC)
   - MAnaged Services : Puppet / Chef
   - management configuration tool
+
+# Section 4 : Monitoring, Logging and remediation
+
+## CloudWatch Dashboards
+
+- Default metrics are included to any EC2 instance : CPU, Network, disk and status check
+- Collecting any system level metrics or any other logs we have to install CloudWatch agent on instances
+- Default interval is 5 Min it can be reduced to 1 sec if needed (Extra charge)
+
+> Exam tips: CloudWatch Dashboards : a Custom View, Multi-Region , Should be saved
+
+## CloudWatch Logs
+
+- Centralized logs : Application, Services and system logs
+- View, Search and Filter
+- Notifications based on alert configuration
+
+### Terminology
+
+- Log Events : message & time stamp
+- Log Stream : sequence of log events
+- Log Group : contains log streams (used to manage retention, access, ... to many log streams)
+
